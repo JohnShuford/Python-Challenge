@@ -12,12 +12,6 @@ with open ('budget_data.csv') as csv_file:
     total = 0
     profits = []
 
-    #defining the buckets
-    great_in_mnth = ""
-    great_in_val = 0
-    great_dec_mnth = ""
-    great_dec_val = 0
-
     for (row) in csv_reader:
         line_count += 1
         if line_count > 1:
@@ -26,16 +20,27 @@ with open ('budget_data.csv') as csv_file:
             #calculating the total
             total  = total + int(row[1])
             #Adding the profits in to a list
-            profits.append(row[1])
-    print(profits)
-    great_in_val = max(profits)
+            profits.append(int(row[1]))
+    line_count_2 = 0
+    great_inc_mnth = " ."
+    great_inc_val = max(profits)
+    great_dec_mnth = " ."
     great_dec_val = min(profits)
+    for row in csv_reader:
+        line_count_2 += 1
+        if line_count_2 > 1:
+            if row[1] == str(max(profits)): 
+                great_inc_mnth = (row[0])  
+    
+    print(great_inc_mnth)
+    
+    #print(profits)
 
     #creating the readout
     print("Financial Analysis")
     print("~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~")
-    print(f"Total Months: {month_count}")
+    print(f"Toatal Months: {month_count}")
     print(f"Total: ${total}")
     print(f"Average Change: ${total/line_count}")
-    print(f"Greatest Increase in Profits: {great_in_val}")
-    print(f"Greatest Decrease in Prifits: {great_dec_val}")
+    print(f"Greatest Increase in Profits: {great_inc_val}")
+    print(f"Greatest Decrease in Profits: {great_dec_val}")
