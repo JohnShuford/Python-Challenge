@@ -11,6 +11,7 @@ with open ('budget_data.csv') as csv_file:
     month_count = 0
     total = 0
     profits = []
+    avg_change = []
 
     for (row) in csv_reader:
         line_count += 1
@@ -27,13 +28,14 @@ with open ('budget_data.csv') as csv_file:
     great_dec_mnth = " ."
     great_dec_val = min(profits)
     for row in csv_reader:
-        line_count_2 += 1
-        if line_count_2 > 1:
-            if row[1] == str(max(profits)): 
-                great_inc_mnth = (row[0])  
+        if row[1] == 1170593: 
+            great_inc_mnth = (row[0])  
     
-    print(great_inc_mnth)
-    
+    for i in range(len(profits)-1):
+       avg_change.append(profits[0+i]-profits[1+i])
+
+
+    print(avg_change)
     #print(profits)
 
     #creating the readout
@@ -41,6 +43,6 @@ with open ('budget_data.csv') as csv_file:
     print("~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~")
     print(f"Toatal Months: {month_count}")
     print(f"Total: ${total}")
-    print(f"Average Change: ${total/line_count}")
-    print(f"Greatest Increase in Profits: {great_inc_val}")
-    print(f"Greatest Decrease in Profits: {great_dec_val}")
+    print(f"Average Change: ${statistics.mean(avg_change)}")
+    print(f"Greatest Increase in Profits: ({great_inc_val})")
+    print(f"Greatest Decrease in Profits: ({great_dec_val})")
