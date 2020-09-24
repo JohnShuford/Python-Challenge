@@ -42,7 +42,7 @@ with open (csv_path, mode = "r", newline="") as csv_file:
     
     #creating a list with month to month change values
     for i in range(len(profits)-1):
-       avg_change.append(profits[0+i]-profits[1+i])
+       avg_change.append(profits[1+i]-profits[0+i])
 
 
     #creating the readout
@@ -54,4 +54,9 @@ with open (csv_path, mode = "r", newline="") as csv_file:
     line_6 = f"Greatest Increase in Profits: (${great_inc_val})"
     line_7 = f"Greatest Decrease in Profits: (${great_dec_val})"
 
+print(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + 
+"\n" + line_5 + "\n" + line_6 + "\n" + line_7)
 
+with open ('financial_analysis.txt', mode = "w") as text:
+    text.writelines(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + 
+"\n" + line_5 + "\n" + line_6 + "\n" + line_7)
