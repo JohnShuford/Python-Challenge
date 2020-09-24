@@ -46,10 +46,12 @@ with open (csv_path, mode = "r", newline="") as csv_file:
 
 
     #creating the readout
-    print("Financial Analysis")
-    print("~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~")
-    print(f"Toatal Months: {month_count}")
-    print(f"Total: ${total}")
-    print(f"Average Change: ${round(statistics.mean(avg_change),2)}")
-    print(f"Greatest Increase in Profits: (${great_inc_val})")
-    print(f"Greatest Decrease in Profits: (${great_dec_val})")
+    line_1 = "Financial Analysis"
+    line_2 = "~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~"
+    line_3 = f"Toatal Months: {month_count}"
+    line_4 = f"Total: ${total}"
+    line_5 = f"Average Change: ${round(statistics.mean(avg_change),2)}"
+    line_6 = f"Greatest Increase in Profits: (${great_inc_val})"
+    line_7 = f"Greatest Decrease in Profits: (${great_dec_val})"
+
+
