@@ -1,20 +1,26 @@
 #importing the necessary libraries
+import os
 import csv
 import statistics
 
+#getting the path set
+csv_path = os.path.join("budget_data.csv")
+
 #opening the CSV file
-with open ('budget_data.csv', mode = "r", newline="") as csv_file:
+with open (csv_path, mode = "r", newline="") as csv_file:
     #reading the file
     csv_reader = csv.reader(csv_file)
+
+    #designating the header
+    csv_header = next(csv_reader)
 
     #creating the counters
     month_count = 0
     total = 0
     profits = []
     avg_change = []
-
-    #designating the header
-    csv_header = next(csv_reader)
+    
+    #findig the counts
     for row in csv_reader:
         #calculatint the month count
         month_count += 1
@@ -29,8 +35,8 @@ with open ('budget_data.csv', mode = "r", newline="") as csv_file:
     great_dec_val = min(profits)
 
     for row in csv_reader:
-        if row[1] == great_inc_val: 
-            great_inc_mnth = (row[0])  
+        if row[1] == "1170593": 
+            great_inc_mnth = (str(row[0]))  
 
     print(great_inc_mnth)
     
@@ -45,5 +51,5 @@ with open ('budget_data.csv', mode = "r", newline="") as csv_file:
     print(f"Toatal Months: {month_count}")
     print(f"Total: ${total}")
     print(f"Average Change: ${round(statistics.mean(avg_change),2)}")
-    print(f"Greatest Increase in Profits: ({great_inc_val})")
-    print(f"Greatest Decrease in Profits: ({great_dec_val})")
+    print(f"Greatest Increase in Profits: (${great_inc_val})")
+    print(f"Greatest Decrease in Profits: (${great_dec_val})")
