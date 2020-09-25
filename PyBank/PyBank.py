@@ -44,21 +44,6 @@ with open (csv_path, mode = "r", newline="") as csv_file:
 
         #greatest decrease
         if net_change < great_dec[1]:
-
-    great_inc_mnth = " ."
-    great_inc_val = max(profits)
-    great_dec_mnth = " ."
-    great_dec_val = min(profits)
-
-    for row in csv_reader:
-        if row[1] == "1170593": 
-            great_inc_mnth = (str(row[0]))  
-
-    print(great_inc_mnth)
-    
-    #creating a list with month to month change values
-    for i in range(len(profits)-1):
-       avg_change.append(profits[1+i]-profits[0+i])
     
     #creating the readout
     line_1 = "Financial Analysis"
