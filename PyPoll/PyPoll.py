@@ -17,6 +17,7 @@ with open (csv_path, mode= "r", newline= "") as csv_file:
     votes = 0
     top_vote = {"O'Tooley":0, "Correy":0, "Li": 0, "Khan": 0}
 
+    #Counting the votes and adding the indiviual totals to the dictionary
     for row in csv_reader:
         votes += 1
         if row[2] == "Khan":
