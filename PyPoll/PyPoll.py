@@ -15,7 +15,7 @@ with open (csv_path, mode= "r", newline= "") as csv_file:
 
     #setting a dictionary and vote counter
     votes = 0
-    top_vote = {"O'Tooley":0, "Correy":0, "Li": 0, "Khan": 0}
+    top_vote = {"O_Tooley":0, "Correy":0, "Li": 0, "Khan": 0}
 
     #Counting the votes and adding the indiviual totals to the dictionary
     for row in csv_reader:
@@ -27,25 +27,19 @@ with open (csv_path, mode= "r", newline= "") as csv_file:
         elif row[2] == "Li":
             top_vote["Li"] += 1
         elif row[2] == "O'Tooley":
-            top_vote["O'Tooley"] += 1
+            top_vote["O_Tooley"] += 1
 
     #find the winner
     winner = max(top_vote.items(), key= operator.itemgetter(1))[0]
     
-    #values for the final results
-    k_v = top_vote["Khan"]
-    c_v = top_vote["Correy"]
-    l_v = top_vote["Li"]
-    o_v = top_vote["O'Tooley"]
-
     line_1 = "Election Results"
     line_2 = "_ _ _ _ _ _ _ _ _ _ _"
     line_3 = f"Total Votes: {votes}"
     line_4 = "_ _ _ _ _ _ _ _ _ _ _"
-    line_5 = f"Khan: {(round((((k_v)/(votes))*100),2))}% {k_v}"
-    line_6 = f"Correy: {(round((((c_v)/(votes))*100),2))}% {c_v}"
-    line_7 = f"Li: {(round((((l_v)/(votes))*100),2))}% {l_v}"
-    line_8 = f"O'Tooley: {(round((((o_v)/(votes))*100),2))}% {o_v}"
+    line_5 = f"Khan: {(round((((top_vote['Khan'])/(votes))*100),2))}% {top_vote['Khan']}"
+    line_6 = f"Correy: {(round((((top_vote['Correy'])/(votes))*100),2))}% {'Correy'}"
+    line_7 = f"Li: {(round((((top_vote['Li'])/(votes))*100),2))}% {top_vote['Li']}"
+    line_8 = f"O'Tooley: {(round((((top_vote['O_Tooley'])/(votes))*100),2))}% {top_vote['O_Tooley']}"
     line_9 = "* * * * * * * * * * * * * *"
     line_10 = f"Winner: {winner}"
     line_11 = "* * * * * * * * * * * * * *"
