@@ -13,10 +13,8 @@ with open (csv_path, mode = "r", newline="") as csv_file:
     #designating the header
     csv_header = next(csv_reader)
 
-    #creating the counters
-    avg_change = []
+    #creating the lists ans setting the first values
     net_change_list = []
-    month_of_change = []
     great_inc = ["",0]
     great_dec = ["",1000000]
     first_row =  next(csv_reader)
@@ -35,7 +33,6 @@ with open (csv_path, mode = "r", newline="") as csv_file:
         net_change = int(row[1]) - prev_net
         prev_net = int(row[1])
         net_change_list.append(net_change)
-        month_of_change.append(row[0])
 
         #greatest increase1
         if net_change > great_inc[1]:
