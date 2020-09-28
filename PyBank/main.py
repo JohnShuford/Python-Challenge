@@ -62,6 +62,8 @@ line_7 = f"Greatest Decrease in Profits: {great_dec[0]} (${great_dec[1]})"
 print(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + \
 "\n" + line_5 + "\n" + line_6 + "\n" + line_7)
 
-with open ('financial_analysis.txt', mode = "w") as text:
+
+txt_path = os.path.join("Analysis", "financial_analysis.txt")
+with open (txt_path, mode = "w") as text:
     text.writelines(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + \
 "\n" + line_5 + "\n" + line_6 + "\n" + line_7)

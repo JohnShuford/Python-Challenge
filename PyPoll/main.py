@@ -48,7 +48,8 @@ print(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 +
 "\n" + line_5 + "\n" + line_6 + "\n" + line_7 + "\n" + line_8 + 
 "\n" + line_9 + "\n" + line_10 + "\n" + line_11)
 
-with open ('final_vote.txt', mode = "w") as text:
+txt_path = os.path.join("Analysis", "final_vote.txt")
+with open (txt_path, mode = "w") as text:
     text.writelines(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + 
 "\n" + line_5 + "\n" + line_6 + "\n" + line_7 + "\n" + line_8 + 
 "\n" + line_9 + "\n" + line_10 + "\n" + line_11)
