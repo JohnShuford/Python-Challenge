@@ -3,7 +3,7 @@ import csv
 import operator
 
 #Setting the relative path
-csv_path = os.path.join("election_data.csv")
+csv_path = os.path.join("Resources", "election_data.csv")
 
 #Opening the CSV file
 with open (csv_path, mode= "r", newline= "") as csv_file:

@@ -3,7 +3,7 @@ import os
 import csv
 
 #getting the path set
-csv_path = os.path.join("budget_data.csv")
+csv_path = os.path.join("Resources", "budget_data.csv")
 
 #opening the CSV file
 with open (csv_path, mode = "r", newline="") as csv_file:
