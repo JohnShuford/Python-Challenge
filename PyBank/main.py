@@ -47,7 +47,7 @@ with open (csv_path, mode = "r", newline="") as csv_file:
         #average change 
         avg_change_num = round((sum(net_change_list))/(len(net_change_list)),2)
 
-    #creating the readout
+#creating the readout
 line_1 = "Financial Analysis"
 line_2 = "~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~"
 line_3 = f"Toatal Months: {month_count}"
@@ -56,11 +56,14 @@ line_5 = f"Average Change: ${avg_change_num}"
 line_6 = f"Greatest Increase in Profits: {great_inc[0]} (${great_inc[1]})"
 line_7 = f"Greatest Decrease in Profits: {great_dec[0]} (${great_dec[1]})"
 
+#printing the lines in the terminal
 print(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + \
 "\n" + line_5 + "\n" + line_6 + "\n" + line_7)
 
-
+#setting the relative path for the text file
 txt_path = os.path.join("Analysis", "financial_analysis.txt")
+
+#creating the text file
 with open (txt_path, mode = "w") as text:
     text.writelines(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + \
 "\n" + line_5 + "\n" + line_6 + "\n" + line_7)

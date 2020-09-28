@@ -32,10 +32,12 @@ with open (csv_path, mode= "r", newline= "") as csv_file:
     #find the winner
     winner = max(top_vote.items(), key= operator.itemgetter(1))[0]
     
+    #creating lines for the print statement and the text file
     line_1 = "Election Results"
     line_2 = "_ _ _ _ _ _ _ _ _ _ _"
     line_3 = f"Total Votes: {votes}"
     line_4 = "_ _ _ _ _ _ _ _ _ _ _"
+    #Individual lines for the percentage of total votes and the total vote count
     line_5 = f"Khan: {(round((((top_vote['Khan'])/(votes))*100),2))}% ({top_vote['Khan']})"
     line_6 = f"Correy: {(round((((top_vote['Correy'])/(votes))*100),2))}% ({'Correy'})"
     line_7 = f"Li: {(round((((top_vote['Li'])/(votes))*100),2))}% ({top_vote['Li']})"
@@ -44,11 +46,15 @@ with open (csv_path, mode= "r", newline= "") as csv_file:
     line_10 = f"Winner: {winner}"
     line_11 = "* * * * * * * * * * * * * *"
 
+#Print the lines in the terminal
 print(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + 
 "\n" + line_5 + "\n" + line_6 + "\n" + line_7 + "\n" + line_8 + 
 "\n" + line_9 + "\n" + line_10 + "\n" + line_11)
 
+#Setting the relative path for the text file
 txt_path = os.path.join("Analysis", "final_vote.txt")
+
+#Creating the text file
 with open (txt_path, mode = "w") as text:
     text.writelines(line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4 + 
 "\n" + line_5 + "\n" + line_6 + "\n" + line_7 + "\n" + line_8 + 
